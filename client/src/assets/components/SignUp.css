@@ -1,0 +1,135 @@
+/* Default styles (Desktop) */
+.formContainer {
+    width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .logo {
+    width: 100px;
+    margin-bottom: 20px;
+  }
+  
+  .heading {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .toggleButtons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .toggleButton {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    background-color: white;
+  }
+  
+  .inputGroup {
+    margin-bottom: 10px;
+  }
+  
+  .inputField {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .submitButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .formContainer {
+      margin-top: 100px;  
+      width: 90%;
+      margin: 20px auto;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 200vh; /* Adjust height to ensure centering */
+    }
+  
+    .logo {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+  
+    .heading {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+  
+    .toggleButtons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+  
+    .toggleButton {
+      padding: 8px 16px;
+      font-size: 14px;
+      margin-right: 8px;
+    }
+  
+    .inputField {
+      font-size: 14px;
+    }
+  
+    .submitButton {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .formContainer {
+      margin-top: 200px;  
+      padding: 10px;
+      height: auto; /* Adjust height for very small screens */
+    }
+  
+    .logo {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+  
+    .heading {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  
+    .toggleButton {
+      padding: 6px 12px;
+      font-size: 12px;
+      margin-right: 6px;
+    }
+  
+    .inputField {
+      font-size: 12px;
+    }
+  
+    .submitButton {
+      font-size: 14px;
+    }
+  }
+  
