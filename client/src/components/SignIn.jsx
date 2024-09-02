@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignIN.css'; // Import the CSS file
+import devDudes from "../assets/devdudes.png"
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const SignIn = () => {
 
   return (
     <div className="formContainer">
-      <img src="https://student.saylaniwelfare.com/assets/logo-OpazD70S.png" alt="Logo" className="logo" />
+      <img src={devDudes} alt="Logo" className="logo" />
       <h2 className="heading">Student Portal</h2>
       <div className="toggleButtons">
         <button 

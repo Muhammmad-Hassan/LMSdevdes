@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css'
-import smitLogo from "../assets/smitLogo.png";
+
+import devDudes from "../assets/devdudes.png"
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,9 +26,9 @@ function Header() {
   return (
     <header className="header-container">
       <nav className="nav">
-        <div className="logo">
+        <div className="logoh">
           <Link to="/">
-            <img src={smitLogo} alt="Logo" />
+            <img src={devDudes} alt="Logo" />
           </Link>
         </div>
         <div className="hamburger" onClick={toggleMenu}>

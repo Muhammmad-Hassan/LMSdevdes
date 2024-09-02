@@ -20,6 +20,7 @@ function App() {
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/CForm" element={<CForm />} />
+          <Route path="/CForm" element={<CForm />} />
 
         </Routes>
       </Router>

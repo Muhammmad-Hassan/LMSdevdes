@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Form.css'; // Assuming you have a CSS file for styling
-
+import devDudes from "../assets/devdudes.png"
 
 const CForm = () => {
   const [name, setName] = useState('');
@@ -44,7 +44,7 @@ const CForm = () => {
 
       <div className="formContainer">
         <img
-          src="client\src\assets\devdudes.png"
+          src={devDudes}
           className="logo"
         />
         <h2 className="heading">Course Form for Students</h2>
