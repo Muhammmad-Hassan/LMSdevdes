@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
     res.json("Hello Khan");
 })
 
-// app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 
 
 
