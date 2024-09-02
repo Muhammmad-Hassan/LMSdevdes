@@ -5,7 +5,7 @@ import AboutPage from './pages/About.jsx';
 import ContactUsPage from './pages/ContactUsPage';
 import SignIn from './components/SignIn.jsx';
 import SignUp from './components/SignUp.jsx';
-
+import CForm from "./components/CForm.jsx"
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
           <Route path="/contact" element={<ContactUsPage/>} />
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/CForm" element={<CForm />} />
 
         </Routes>
       </Router>

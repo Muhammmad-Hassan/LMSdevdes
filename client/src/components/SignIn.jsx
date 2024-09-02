@@ -16,7 +16,7 @@ const SignIn = () => {
     }
     // Sign-in logic here (without Firebase)
     console.log("Sign-in successful!", { email, password });
-    navigate('/StudentRegistrationForm'); // Redirect to the registration form after successful sign-in
+    navigate('/CForm'); // Redirect to the registration form after successful sign-in
   };
 
   return (
