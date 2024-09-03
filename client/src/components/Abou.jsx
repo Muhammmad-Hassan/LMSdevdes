@@ -52,7 +52,7 @@ function AboutPage() {
         </section>
 
         {/* Features Section */}
-        <section className="p-10 bg-gray-100 text-center border border-r-green-600 border-gray-300">
+        <section className="p-10 bg-gray-100 text-center border-b border-gray-300">
           <h2 className="text-4xl mb-5 font-semibold">Countdown Board Features</h2>
           <ul className="flex flex-wrap justify-center gap-5 my-5 list-none max-w-4xl mx-auto">
             <li className="bg-gray-200 rounded-lg p-4 text-gray-800 w-full sm:w-2/5 text-center transition-transform transform hover:bg-gray-300 hover:scale-105">
