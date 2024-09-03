@@ -23,7 +23,7 @@ const CourseForm = () => {
       // Implement API call here
       const responce =  await axios.post('http://127.0.0.1:5000/api/course', { name, fatherName, cnic, dob, course, profileImage });
       console.log(responce.data)
-      navigate('/some-page'); // Adjust the redirection as needed
+      navigate('/student-dashboard'); // Adjust the redirection as needed
     } catch (error) {
       setErrorMessage('An error occurred. Please try again.: ' ,error.message);
     } finally {

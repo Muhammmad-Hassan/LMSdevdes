@@ -41,7 +41,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-tl from-[#FAFEFE] to-[#E5FCFE]">
       <img src={devDudes} alt="Logo" className="w-32 h-32 mb-8" />
       <h2 className="text-2xl font-bold mb-6">Student Portal</h2>
       <div className="flex space-x-4 mb-6">
@@ -65,7 +65,7 @@ const SignIn = () => {
             placeholder="Email"
             value={studentEmail}
             onChange={(e) => setStudentEmail(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#E5FCFE]"
             required
           />
         </div>
@@ -75,7 +75,7 @@ const SignIn = () => {
             placeholder="Password"
             value={studentPassword}
             onChange={(e) => setStudentPassword(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#E5FCFE]"
             required
           />
         </div>

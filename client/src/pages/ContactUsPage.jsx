@@ -30,7 +30,6 @@ function ContactUsPage() {
 
   return (
     <>
-    <Header/>
    
     <div className="contact-us-page">
       <header className="contact-header">
