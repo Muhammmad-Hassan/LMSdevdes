@@ -1,12 +1,8 @@
-const bcrypt =   require('bcrypt')
-const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const { Student, Admin } = require("../models/authModels");
 
-const {Student ,Admin} = require("../models/authModels")
-
-
-
-
-// adminRegister
+// Admin Registration
 exports.adminRegister = async (req, res) => {
     const { adminEmail, adminPassword } = req.body;
     console.log(req.body);
@@ -26,15 +22,15 @@ exports.adminRegister = async (req, res) => {
         const admin = await Admin.create({ adminEmail, adminPassword: hashedPassword });
 
         // Generate a token
-        console.log(admin)
-        res.status(201).json({ message: "User created" });
+        console.log(admin);
+        res.status(201).json({ message: "Admin created successfully" });
     } catch (error) {
         console.error(error.message);
         res.status(500).json({ message: 'Server error' });
     }
 };
 
-// adminLogin
+// Admin Login
 exports.adminLogin = async (req, res) => {
     const { adminEmail, adminPassword } = req.body;
     // console.log(req.body)
@@ -42,18 +38,15 @@ exports.adminLogin = async (req, res) => {
     try {
         const admin = await Admin.findOne({ adminEmail });
         if (!admin) {
-
-            return res.status(401).json({ message: 'Invalid admin Email or password' });
+            return res.status(401).json({ message: 'Invalid email or password' });
         }
 
         const isMatch = await bcrypt.compare(adminPassword, admin.adminPassword);
-
         if (!isMatch) {
-            return res.status(401).json({ message: 'Invalid admin Email or password' });
+            return res.status(401).json({ message: 'Invalid email or password' });
         }
 
         const token = jwt.sign({ id: admin._id }, "hassan");
-
         res.json({ token });
     } catch (error) {
         console.error(error);
@@ -61,17 +54,21 @@ exports.adminLogin = async (req, res) => {
     }
 }
 
-
-// studentRegister
+// Student Registration
 exports.studentRegister = async (req, res) => {
-    const { studentEmail, studentPassword } = req.body;
-    console.log("body data :",req.body);
+    const { studentEmail, studentPassword, confirmPassword } = req.body;
+    console.log("body data:", req.body);
 
     try {
         // Check if the student already exists
-        const existingstudent = await Student.findOne({ studentEmail });
-        if (existingstudent) {
-            return res.status(400).json({ message: 'Admin already exists' });
+        const existingStudent = await Student.findOne({ studentEmail });
+        if (existingStudent) {
+            return res.status(400).json({ message: 'Student already exists' });
+        }
+
+        // Check if passwords match
+        if (studentPassword !== confirmPassword) {
+            return res.status(400).json({ message: 'Passwords do not match' });
         }
 
         // Hash the password before saving
@@ -82,39 +79,34 @@ exports.studentRegister = async (req, res) => {
         const student = await Student.create({ studentEmail, studentPassword: hashedPassword });
 
         // Generate a token
-        console.log(student)
-        res.status(201).json({ message: "User created" });
+        console.log(student);
+        res.status(201).json({ message: "Student created successfully" });
     } catch (error) {
         console.error(error.message);
         res.status(500).json({ message: 'Server error' });
     }
 }
 
-
-// studentLogin
+// Student Login
 exports.studentLogin = async (req, res) => {
     const { studentEmail, studentPassword } = req.body;
-    console.log(req.body)
+    console.log(req.body);
 
     try {
         const student = await Student.findOne({ studentEmail });
         if (!student) {
-
-            return res.status(401).json({ message: 'Invalid admin Email or password' });
+            return res.status(401).json({ message: 'Invalid email or password' });
         }
 
         const isMatch = await bcrypt.compare(studentPassword, student.studentPassword);
-
         if (!isMatch) {
-            return res.status(401).json({ message: 'Invalid admin Email or password' });
+            return res.status(401).json({ message: 'Invalid email or password' });
         }
 
         const token = jwt.sign({ id: student._id }, "hassan");
-
         res.json({ token });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Server error' });
     }
 }
-
