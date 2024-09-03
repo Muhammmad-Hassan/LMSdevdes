@@ -1,82 +1,105 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './SignUp.css'; // Import the CSS file
-import devDudes from "../assets/devdudes.png"
+import axios from 'axios'; // Import Axios for making HTTP requests
+import devDudes from "../assets/devdudes.png";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
+  const [studentEmail, setStudentEmail] = useState(''); // State for student email
+  const [studentPassword, setStudentPassword] = useState(''); // State for student password
+  const [confirmPassword, setConfirmPassword] = useState(''); // State for confirming password
+  const [error, setError] = useState(''); // State for managing error messages
 
-  const handleSignUp = (event) => {
-    event.preventDefault();
-    if (!email.includes('@')) {
+  const handleSignUp = async (event) => {
+    event.preventDefault(); // Prevent the default form submission
+    setError(''); // Clear any previous errors
+
+    // Validate email format
+    if (!studentEmail.includes('@')) {
       setError('Please enter a valid email address.');
       return;
     }
-    if (password !== confirmPassword) {
+
+    // Check if passwords match
+    if (studentPassword !== confirmPassword) {
       setError('Passwords do not match.');
       return;
     }
-    // Sign-up logic here (without Firebase)
-    console.log("Sign-up successful!", { email, password });
-    navigate('/SignIn'); // Redirect to sign-in page after successful sign-up
+
+    try {
+      // Send the sign-up request to the backend using Axios
+      const response = await axios.post('/api/student/register', {
+        studentEmail,
+        studentPassword,
+      });
+
+      // If the sign-up is successful, log the response and navigate to the sign-in page
+      console.log('Sign-up successful!', response.data);
+      navigate('/SignIn'); // Redirect to the sign-in page after successful sign-up
+    } catch (error) {
+      if (error.response) {
+        // Handle known errors from the backend (e.g., email already in use)
+        setError(error.response.data.message || 'An error occurred during sign-up.');
+      } else {
+        // Handle unknown errors (e.g., network issues)
+        setError('An error occurred. Please try again later.');
+      }
+    }
   };
 
   return (
-    <div className="formContainer">
-      <img src={devDudes} alt="Logo" className="logo" />
-      <h2 className="heading">Student Portal</h2>
-      <div className="toggleButtons">
-        <button 
-          onClick={() => navigate('/SignIn')} 
-          className="toggleButton" 
-          style={{ backgroundColor: '#f0f0f0' }}
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+      <img src={devDudes} alt="Logo" className="w-32 h-32 mb-8" />
+      <h2 className="text-2xl font-bold mb-6">Student Portal</h2>
+      <div className="flex space-x-4 mb-6">
+        <button
+          onClick={() => navigate('/SignIn')}
+          className="px-4 py-2 bg-gray-200 text-gray-800 border border-gray-300 rounded-md"
         >
           Sign In
         </button>
-        <button 
-          onClick={() => navigate('/SignUp')} 
-          className="toggleButton"
+        <button
+          onClick={() => navigate('/SignUp')}
+          className="px-4 py-2 bg-gray-800 text-white border border-gray-500 rounded-md"
         >
           Sign Up
         </button>
       </div>
-      <form onSubmit={handleSignUp}>
-        <div className="inputGroup">
-          <input 
-            type="email" 
-            placeholder="Email" 
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="inputField"
+      <form onSubmit={handleSignUp} className="w-full max-w-md bg-white p-6 rounded-lg shadow-md">
+        <div className="mb-4">
+          <input
+            type="email"
+            placeholder="Email"
+            value={studentEmail}
+            onChange={(e) => setStudentEmail(e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
         </div>
-        <div className="inputGroup">
-          <input 
-            type="password" 
-            placeholder="Password" 
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="inputField"
+        <div className="mb-4">
+          <input
+            type="password"
+            placeholder="Password"
+            value={studentPassword}
+            onChange={(e) => setStudentPassword(e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
         </div>
-        <div className="inputGroup">
-          <input 
-            type="password" 
-            placeholder="Confirm Password" 
+        <div className="mb-4">
+          <input
+            type="password"
+            placeholder="Confirm Password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            className="inputField"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
         </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit" className="submitButton">Create Account</button>
+        {error && <p className="text-red-500 mb-4">{error}</p>} {/* Display error messages */}
+        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600">
+          Create Account
+        </button>
       </form>
     </div>
   );
