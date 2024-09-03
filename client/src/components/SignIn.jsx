@@ -21,7 +21,7 @@ const SignIn = () => {
       }
 
       // Send the sign-in request to the backend using Axios
-      const response = await axios.post('/api/student/login', {
+      const response = await axios.post('http://127.0.0.1:5000/api/auth/student-login', {
         studentEmail,
         studentPassword,
       });

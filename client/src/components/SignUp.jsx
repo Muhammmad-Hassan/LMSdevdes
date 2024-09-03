@@ -28,14 +28,18 @@ const SignUp = () => {
 
     try {
       // Send the sign-up request to the backend using Axios
-      const response = await axios.post('/api/student/register', {
+      const response = await axios.post('http://127.0.0.1:5000/api/auth/student-register', {
         studentEmail,
         studentPassword,
+        confirmPassword
       });
-
-      // If the sign-up is successful, log the response and navigate to the sign-in page
+     
       console.log('Sign-up successful!', response.data);
-      navigate('/SignIn'); // Redirect to the sign-in page after successful sign-up
+      if(response.status === 201){
+        navigate('/SignIn'); // Redirect to the sign-in page after successful sign-up
+
+      }
+      // If the sign-up is successful, log the response and navigate to the sign-in page
     } catch (error) {
       if (error.response) {
         // Handle known errors from the backend (e.g., email already in use)
