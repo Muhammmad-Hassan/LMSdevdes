@@ -17,6 +17,8 @@
 .heading {
   margin-bottom: 20px;
   font-size: 24px;
+  color: #67AD49;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .toggleButtons {

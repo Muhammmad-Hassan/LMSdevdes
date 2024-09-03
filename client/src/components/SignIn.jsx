@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignIN.css'; // Import the CSS file
+import devDudes from "../assets/devdudes.png"
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -16,12 +17,12 @@ const SignIn = () => {
     }
     // Sign-in logic here (without Firebase)
     console.log("Sign-in successful!", { email, password });
-    navigate('/StudentRegistrationForm'); // Redirect to the registration form after successful sign-in
+    navigate('/CForm'); // Redirect to the registration form after successful sign-in
   };
 
   return (
     <div className="formContainer">
-      <img src="https://student.saylaniwelfare.com/assets/logo-OpazD70S.png" alt="Logo" className="logo" />
+      <img src={devDudes} alt="Logo" className="logo" />
       <h2 className="heading">Student Portal</h2>
       <div className="toggleButtons">
         <button 
