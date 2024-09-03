@@ -41,6 +41,7 @@ function Header() {
             <li><Link to="/about">ABOUT</Link></li>
            <li><Link to="/contact">CONTACT</Link></li>
           </ul>
+            <button className='register-btn'><Link to="/registered">REGISTERED?</Link></button>
         </div>
       </nav>
     </header>

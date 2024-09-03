@@ -4,3 +4,119 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Default styles (Desktop) */
+.authContainer {
+  width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+}
+
+.authLogo {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.authHeading {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.authForm {
+  width: 100%;
+}
+
+.authInputGroup {
+  margin-bottom: 10px;
+}
+
+.authInputField {
+  width: 100%; /* Ensures the input field takes up the full width of its container */
+  max-width: 500px; /* Set a maximum width if needed */
+  padding: 12px; /* Increase padding for better spacing */
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.authSubmitButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.authError {
+  color: red;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .authContainer {
+    width: 90%;
+    margin: 0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height to center vertically */
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .authLogo {
+    width: 80px;
+    margin-bottom: 15px;
+  }
+
+  .authHeading {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .authInputField {
+    font-size: 14px;
+    padding: 10px; /* Adjust padding for mobile */
+  }
+
+  .authSubmitButton {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .authContainer {
+    padding: 10px;
+    height: auto; /* Adjust height for very small screens */
+  }
+
+  .authLogo {
+    width: 60px;
+    margin-bottom: 10px;
+  }
+
+  .authHeading {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .authInputField {
+    font-size: 12px;
+    padding: 8px; /* Adjust padding for very small screens */
+  }
+
+  .authSubmitButton {
+    font-size: 14px;
+  }
+}
