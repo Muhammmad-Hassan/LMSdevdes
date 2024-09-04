@@ -22,7 +22,7 @@ const CForm = () => {
     // Implement your form submission logic here, e.g., saving data to local state or passing it to a backend service
 
     setLoading(false);
-    navigate('/some-page'); // Adjust the redirection as needed
+    navigate('/Dashboard'); // Adjust the redirection as needed
   };
 
   const handleImageUpload = (e) => {
@@ -30,7 +30,7 @@ const CForm = () => {
   };
 
   const handleGoToDashboard = () => {
-    navigate('/dashboard'); // Adjust this path as needed
+    navigate('/Dashboard'); // Adjust this path as needed
   };
 
   return (

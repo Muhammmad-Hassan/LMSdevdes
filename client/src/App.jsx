@@ -6,6 +6,7 @@ import ContactUsPage from './pages/ContactUsPage';
 import SignIn from './components/SignIn.jsx';
 import SignUp from './components/SignUp.jsx';
 import CForm from './components/CForm.jsx';
+import Dashboard from './components/Dashboard.jsx';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/CForm" element={<CForm />} />
           <Route path="/CForm" element={<CForm />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
 
         </Routes>
       </Router>
