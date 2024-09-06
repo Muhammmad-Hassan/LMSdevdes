@@ -10,7 +10,7 @@ require("./db/conn")
 // Middleware
 
 app.use(cors({
-    origin: "",
+    origin: [""],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true
 }));
@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'uploads'))); 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-app.get("/", (req, res) => {
+app.use("/", (req, res) => {
     res.json("Hello Khan");
 })
 
