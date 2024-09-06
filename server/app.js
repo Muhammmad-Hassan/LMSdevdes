@@ -10,7 +10,7 @@ require("./db/conn")
 // Middleware
 
 app.use(cors({
-    // origin: "",
+    origin: ["https://front-azure-six.vercel.app"],
     methods: ["POST", "GET"],
     credentials: true
 }));

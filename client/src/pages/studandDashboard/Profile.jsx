@@ -32,7 +32,7 @@ function Profile() {
 
     try {
       // Replace with your actual API endpoint
-      await axios.post('http://localhost:5000/api/updateProfile', data, {
+      await axios.post('https://back-iota-lilac.vercel.app/updateProfile', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
