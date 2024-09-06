@@ -93,7 +93,7 @@ const teamMembers = [
   return (
     <>
 
-      <div className="font-sans text-gray-800 leading-relaxed  bg-gradient-to-tl from-[#FAFEFE] to-[#E5FCFE] ">
+      <div className="font-sans z- text-gray-800 leading-relaxed  bg-gradient-to-tl from-[#FAFEFE] to-[#E5FCFE] ">
         {/* Mission Section */}
         <section className="p-10  text-center border-b border-gray-300">
           <h2 className="text-4xl mb-5 font-semibold">Our Mission</h2>

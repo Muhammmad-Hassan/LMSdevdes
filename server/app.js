@@ -4,21 +4,26 @@ const cors = require('cors');
 const app = express();
 const port = 5000;
 const path = require('path');
-const courseRoutes = require("./routes/courseRoute")
 const authRoutes = require("./routes/authRoutes")
+const profileRoutes = require('./routes/Profile'); // Import the profile route
 require("./db/conn")
 // Middleware
 
-app.use(cors());
+app.use(cors({
+    origin: [""],
+    methods: ["POST", "GET"],
+    credentials: true
+}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'uploads'))); 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.get("/", (req, res) => {
     res.json("Hello Khan");
 })
 
 app.use('/api/auth', authRoutes);
-app.use('/api', courseRoutes);
+app.use('/api', profileRoutes);
 
 
 

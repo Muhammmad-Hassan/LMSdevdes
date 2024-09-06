@@ -1,0 +1,15 @@
+// models/User.js
+const mongoose = require('mongoose');
+
+const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+  },
+  profileImage: {
+    type: String, // Store the image URL or path here
+  },
+});
+
+const User = mongoose.model('User', userSchema);
+module.exports = User;

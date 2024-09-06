@@ -31,7 +31,7 @@ const Header = () => {
 
   return (
     <>
-    <nav className="flex shadow-lg sticky bg-gradient-to-tl from-[#E5FCFE] to-[#FAFEFE]  top-0 z-30 border justify-between h-[55px] md:h-[80px] p-1 md:p-2 items-center w-full">
+    <nav className="flex shadow-lg sticky bg-gradient-to-tl from-[#E5FCFE] to-[#FAFEFE]  top-0 border justify-between h-[55px] md:h-[80px] p-1 md:p-2 items-center w-full">
       {/* logo */}
       <div className="mx-3">
         <Link to={"/"} className="flex gap-2  justify-center items-center">
@@ -70,7 +70,7 @@ const Header = () => {
           <div
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`absolute top-5 left-0 mt-1 w-[200px] bg- shadow-xl rounded-lg ${
+            className={`absolute top-5 left-0 mt-1 w-[200px] bg- shadow-xl rounded-lg bg-[#E5FCFE] ${
               subCat ? "block" : "hidden"
             }`}
           >
@@ -116,7 +116,7 @@ const Header = () => {
 
       {/* animative navbar */}
       <div
-        className={`lg:flex  font-medium transition-all duration-500   ${
+        className={`lg:flex  font-medium transition-all duration-500 bg-gradient-to-tl from-[#E5FCFE] to-[#FAFEFE]   ${
           menuOpen
             ? "absolute flex w-full sm:w-[300px] translate-x-0    flex-col   gap-4  left-0 h-[100vh]  bg- shadow-xl top-0 "
             : "absolute flex w-full sm:w-[300px] translate-x-[-650px]    flex-col   gap-4 left-0 h-[100vh]  bg- shadow-xl top-0 "
@@ -140,36 +140,30 @@ const Header = () => {
        
 
         <Link
-          to={"/aboutus"}
+          to={"/about"}
           onClick={() => setMenuOpen(false)}
           className="hover:shadow-lg font-semibold text-zinc-600  focus:text-blue-400 lg:mx-2 text-md rounded-lg transition-all duration-200 hover:text-blue-400 px-4"
         >
           About Us
         </Link>
-        <Link
-          to={"/blogs"}
-          onClick={() => setMenuOpen(false)}
-          className="hover:shadow-lg  font-semibold text-zinc-600 focus:text-blue-400 lg:mx-2 text-md rounded-lg transition-all duration-200 hover:text-blue-400 px-4"
-        >
-          Blogs
-        </Link>
+       
 
-        <div className="relative">
+        <div className="relative  ">
           <button
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             className="hover:shadow-lg font-semibold text-zinc-600  lg:mx-2 text-md focus:text-blue-400 rounded-lg transition-all duration-200 hover:text-blue-400 px-4"
           >
-            Services
+            Student
           </button>
           <div
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`absolute top-5 left-0 mt-1 w-[200px] bg- shadow-xl rounded-lg ${
+            className={`absolute top-5 left-0 mt-1 w-[200px] bg- shadow-xl rounded-lg bg-[#E5FCFE] ${
               subCat ? "block" : "hidden"
             }`}
           >
-            <Link
+             <Link
               to="/assignments"
               onClick={handleCatergaoryClick}
               className="block py-2 px-4 text-sm text-gray-800 hover:bg-gray-200"
@@ -197,7 +191,6 @@ const Header = () => {
             >
               Profile
             </Link>
-            
           </div>
         </div>
 
