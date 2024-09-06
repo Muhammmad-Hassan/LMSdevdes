@@ -11,7 +11,7 @@ require("./db/conn")
 
 app.use(cors({
     origin: ["https://front-azure-six.vercel.app"],
-    methods: ["POST", "GET"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true
 }));
 app.use(express.json());
