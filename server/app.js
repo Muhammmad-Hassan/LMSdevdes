@@ -4,11 +4,11 @@ const cors = require('cors');
 const app = express();
 const port = 5000;
 const path = require('path');
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
 
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
-// const { Student, Admin } = require('./models/authModels'); // Import your models
+const { Student, Admin } = require('./models/authModels'); // Import your models
 
 require("./db/conn")
 // Middleware
