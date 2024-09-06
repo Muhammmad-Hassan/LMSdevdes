@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 
 const bcrypt = require('bcrypt');
 
-const { Student, Admin } = require('./models/authModels'); // Import your models
+// const { Student, Admin } = require('./models/authModels'); // Import your models
 
 require("./db/conn")
 // Middleware
