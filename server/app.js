@@ -7,7 +7,6 @@ const multer = require('multer');
 const fs = require('fs');
 require('./db/conn'); // Ensure your database connection is being established
 const { Student, Admin } = require('./models/authModels'); // Import your models
-const Course = require('./models/Course'); // Import the Course model
 const User = require('./models/User'); // Import the User model
 
 const app = express();
@@ -143,32 +142,6 @@ app.post('/api/auth/student-login', async (req, res) => {
     }
 });
 
-// Course Creation
-app.post('/api/courses', upload.single('profileImage'), async (req, res) => {
-    try {
-        const { name, fatherName, cnic, dob, course } = req.body;
-        let profileImage = '';
-
-        // Handle file upload if any
-        if (req.file) {
-            profileImage = req.file.path; // or use req.file.filename depending on your setup
-        }
-
-        const newCourse = new Course({
-            name,
-            fatherName,
-            cnic,
-            dob,
-            course,
-            profileImage
-        });
-
-        await newCourse.save();
-        res.status(201).json({ message: 'Course created successfully', course: newCourse });
-    } catch (error) {
-        res.status(500).json({ error: 'An error occurred while creating the course' });
-    }
-});
 
 // Profile Update Route
 app.post('/api/updateProfile', upload.single('profileImage'), async (req, res) => {
