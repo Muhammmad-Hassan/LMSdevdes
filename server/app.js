@@ -4,8 +4,6 @@ const cors = require('cors');
 const app = express();
 const port = 5000;
 const path = require('path');
-const authRoutes = require("./routes/authRoutes")
-const profileRoutes = require('./routes/Profile'); // Import the profile route
 require("./db/conn")
 // Middleware
 
