@@ -10,7 +10,7 @@ require("./db/conn")
 // Middleware
 
 app.use(cors({
-    origin: [""],
+    origin: "",
     methods: ["POST", "GET"],
     credentials: true
 }));
