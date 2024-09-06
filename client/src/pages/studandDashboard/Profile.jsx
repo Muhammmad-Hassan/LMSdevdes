@@ -39,7 +39,7 @@ function Profile() {
       });
       setSuccess('Profile updated successfully!');
     } catch (err) {
-      setError('Failed to update profile');
+      setError('Failed to update profile:' , err);
       console.error(err);
     } finally {
       setLoading(false);
